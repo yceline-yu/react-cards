@@ -8,7 +8,7 @@ import React from 'react';
  *
  * State: none
  *
- * CardGame -> Card
+ * Deck -> Card
  */
 function Card({ image, value, suit }) {
   return <img src={image} alt={`${value} of ${suit}`} />;
