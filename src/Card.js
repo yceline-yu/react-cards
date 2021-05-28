@@ -1,13 +1,17 @@
-import React from "react";
+import React from 'react';
 
 /** Card - renders a card
- * 
- * 
+ *
+ * Props: image (url)
+ *        value (string)
+ *        suit (string)
+ *
+ * State: none
+ *
+ * CardGame -> Card
  */
-function Card({ image, value, suit }){
-  return (
-    <img src={image} alt={`${value} of ${suit}`}/>
-  )
+function Card({ image, value, suit }) {
+  return <img src={image} alt={`${value} of ${suit}`} />;
 }
 
 export default Card;
