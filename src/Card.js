@@ -11,7 +11,7 @@ import React from 'react';
  * Deck -> Card
  */
 function Card({ image, value, suit }) {
-  return <img src={image} alt={`${value} of ${suit}`} />;
+  return <img className="Card" src={image} alt={`${value} of ${suit}`} />;
 }
 
 export default Card;

@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import axios from 'axios';
+import "./Deck.css"
 
 const BASE_API_URL = 'https://deckofcardsapi.com/api/deck';
 /** Card Game
  *
- * Prop: none
+ * Props: none
  *
  * State: cardList ({code, image, suit, value})
  *        deck ({deck_id, remaining, shuffled, success})
+ *        isLoading (boolean)
+ *        isShuffling (boolean)
  *
  * App -> Deck > Card
  *
@@ -52,7 +55,6 @@ function Deck() {
       );
       console.log('handleClick response ->', response.data);
       setCardList((currCards) => [response.data.cards[0], ...currCards]);
-
     }
   }
 
@@ -61,18 +63,19 @@ function Deck() {
     setCardList([]);
   }
 
-  let cards = cardList.map(card =>
-    <span key={card.code}>
+  let cards = cardList.slice(0).reverse().map(card =>
+    <span className="Deck-card" key={card.code}>
       <Card image={card.image} value={card.value} suit={card.suit} />
     </span>);
 
   return (
-    <div>
+    <div className="Deck">
       { isLoading || isShuffling
         ? "Getting a deck!"
-        : <div><button onClick={handleShuffle}>Shuffle!</button>
-          <button onClick={handleClick}>Card Please!</button></div>}
-      <div>{cards}</div>
+        : <div ><button className="Deck-buttons" onClick={handleClick}>Card Please!</button>
+          <button className="Deck-buttons" onClick={handleShuffle}>Shuffle!</button>
+          </div>}
+      <div className="Deck-cards">{cards}</div>
     </div>
   );
 }

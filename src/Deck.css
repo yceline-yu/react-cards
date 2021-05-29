@@ -1,0 +1,17 @@
+.Deck {
+	position: relative;
+	background-color: green;
+}
+
+.Deck-buttons {
+	margin: 15px;
+}
+
+.Deck-cards {
+	position: absolute;
+	left: 42%;
+}
+
+.Deck-card{
+	position: absolute;
+}
